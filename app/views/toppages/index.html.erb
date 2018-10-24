@@ -1,0 +1,12 @@
+<% content_for :cover do %>
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="cover-contents">
+        <h1>あなたの読書にスパイスを</h1>
+        <% unless logged_in? %>
+            <%= link_to 'doc-docに登録する', signup_path, class: 'btn btn-success btn-lg' %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
