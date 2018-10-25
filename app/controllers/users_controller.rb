@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show]
   def show
     @user = User.find(params[:id])
+    counts(@user)
   end
 
   def create
@@ -19,6 +20,22 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+  
+  def followings
+    @user = User.find(params[:id])
+    @followings = @user.followings.page(params[:page])
+    counts(@user)
+  end 
+  
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.followings.page(params[:page])
+    counts(@user)
+  end 
+    
+  
+  
+    
   
   private
 
