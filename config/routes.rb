@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  
- 
 
-  get 'relationships/create'
 
-  get 'relationships/destroy'
+  get 'books/new'
+
+  get 'books/show'
 
   root to:'toppages#index'
   
@@ -21,4 +20,6 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :relationships, only:[:create,:destroy]
+  get 'search', to: 'books#new'
+  get 'books/:id', to: 'books#show',as: :books
 end
