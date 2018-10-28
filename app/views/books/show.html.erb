@@ -1,2 +1,52 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="row">
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="item">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          <img src="<%= @book.image_url %>" alt="">
+        </div>
+        <div class="panel-body">
+          <p class="book-title"><%= @book.title %></p>
+          <div class="buttons text-center">
+            <p>ボタン2つ入れるところ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-6">
+    <div class="item-introduction">
+      <div class="panel-body">
+        <ul>
+          <li>著者：<%= @book.author %></li>
+          <li>発売日：<%= @book.sales_date %></li>
+          <li>価格：<%= @book.item_price %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="liked-users">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          この本にいいねしたユーザー
+        </div>
+        <div class="panel-body">
+          
+        </div>
+      </div>
+    </div>
+    <div class="posted-users">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          （タグ付けして投稿したユーザーを表示、@countで何人したかも表示する）
+        </div>
+        <div class="panel-body">
+        </div>
+      </div>
+    </div>
+    <p class="text-center"><%= link_to '楽天詳細ページ', @book.item_url, target: '_blank' %></p>
+  </div>
+</div>

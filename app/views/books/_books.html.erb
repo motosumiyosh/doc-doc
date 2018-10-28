@@ -1,4 +1,4 @@
-<% if books %>
+<% if books.present? %>
   <div class="row">
     <% books.each do |book| %>
       <div class="book">
@@ -8,7 +8,11 @@
               <img src="<%= book.image_url %>" alt="" >
             </div>
             <div class="panel-body">
-              <p class="book-title"><%= book.title %></p>
+              <% if book.persisted? %>
+                <p class="book-title"><%= link_to book.title, book %></p>
+              <% else %>
+                <p class="book-title"><%= book.title %></p>
+              <% end %>
             </div>
           </div>
         </div>

@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
 
-  get 'books/new'
+  get 'favorites/create'
 
-  get 'books/show'
+  get 'favorites/destroy'
+
+  get 'create/destroy'
+
+  resources :favorites, only:[:create,:destroy]
 
   root to:'toppages#index'
   
@@ -16,10 +20,16 @@ Rails.application.routes.draw do
     member do
       get :followings
       get :followers
+      get :liked_books
     end 
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :relationships, only:[:create,:destroy]
-  get 'search', to: 'books#new'
-  get 'books/:id', to: 'books#show',as: :books
+  get 'search', to: 'books#new' 
+  get 'books/:id', to: 'books#show',as: :book do
+    member do
+      get :liked_users
+    end 
+  end 
+  
 end

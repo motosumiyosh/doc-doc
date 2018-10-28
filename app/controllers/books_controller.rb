@@ -5,7 +5,7 @@ class BooksController < ApplicationController
     @books = []
     
     @title = params[:title]
-    if @title.present?
+    if @title
       results = RakutenWebService::Books::Book.search({
         title: @title,
         hits: 30,
@@ -21,6 +21,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @book = Book.find(params[:id])
   end
   
   private
