@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'favorites/create'
-
-  get 'favorites/destroy'
-
-  get 'create/destroy'
+ 
 
   resources :favorites, only:[:create,:destroy]
 

@@ -57,6 +57,10 @@ footer {
 .book .panel-body{
   height: 120px;
 }
+.book .panel-heading{
+  height: 230px;
+}
+
 p.book-title{
   height: 35px;
   display: -webkit-box;

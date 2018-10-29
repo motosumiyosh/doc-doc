@@ -13,6 +13,12 @@
               <% else %>
                 <p class="book-title"><%= book.title %></p>
               <% end %>
+              <div class="buttons text-center">
+                <% if logged_in? %>
+                  <%= render 'favorites/like_button', book: book %>
+                  
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
