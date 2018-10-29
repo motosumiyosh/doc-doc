@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       redirect_to @user
     else
       flash[:danger] = 'ログインに失敗しました'
-      redirect_to 'new'
+      redirect_back(fallback_location: root_path)
     end
       
     
