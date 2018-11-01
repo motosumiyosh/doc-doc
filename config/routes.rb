@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
 
- 
-
   resources :favorites, only:[:create,:destroy]
 
   root to:'toppages#index'
@@ -26,6 +24,9 @@ Rails.application.routes.draw do
     member do
       get :liked_users
     end 
-  end 
+  
+  end
+  
+  resources :posts, only:[:new, :create, :destroy, :show]
   
 end

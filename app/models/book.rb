@@ -10,4 +10,6 @@ class Book < ApplicationRecord
   has_many :reversed_of_favorites,class_name:"Favorite",foreign_key:'favorite_id'
   has_many :liked_users, through: :reversed_of_favorites, source: :user
   
+  has_many :posts
+  has_many :posted_users, through: :posts
 end

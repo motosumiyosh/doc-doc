@@ -14,6 +14,9 @@ class User < ApplicationRecord
   
   has_many :favorites
   has_many :liked_books, through: :favorites, source: :book
+  
+  has_many :posts
+  
     
   def follow(other_user)
     unless self == other_user

@@ -1,0 +1,19 @@
+<h1>id = <%= @post.id %> のメッセージ詳細ページ</h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th>id</th>
+    <td><%= @post.id %></td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td><%= @post.book_title %></td>
+  </tr>
+  <tr>
+    <th>メッセージ</th>
+    <td><%= @post.comment %></td>
+  </tr>
+</table>
+
+
+<%= link_to 'このメッセージを削除する', @post, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>

@@ -6,14 +6,14 @@ class FavoritesController < ApplicationController
     
     unless @book.persisted?
       results = RakutenWebService::Books::Book.search(isbn: @book.isbn)
+      
 
       @book = Book.new(read(results.first))
-      
       @book.save
       
     end
 
-     
+    
     current_user.like(@book)
     flash[:success] = 'お気に入りに登録しました'
     redirect_back(fallback_location: root_path)
@@ -22,7 +22,7 @@ class FavoritesController < ApplicationController
  
 
   def destroy
-    @book = Book.find(isbn: params[:book_isbn])
+    @book = Book.find(params[:book_id])
     current_user.unlike(@book)
     redirect_back(fallback_location: root_path)
   end

@@ -1,14 +1,14 @@
-
+<% book = Book.find_by(isbn: book.isbn) || book %>
 <% if current_user.like?(book) %>
   <%= form_tag(favorite_path(book.id), method: :delete) do %>
-  
     <%= hidden_field_tag :book_id, book.id %>
-    <%= submit_tag 'お気に入り',class:"btn btn-success" %>
+    <%= submit_tag 'like済み',class:"btn btn-danger" %>
   <% end %>
 <% else %>
+
   <%= form_tag(favorites_path) do %>
     <%= hidden_field_tag :book_isbn, book.isbn %>
-    <%= submit_tag 'お気に入りに登録',class:"btn btn-success" %>
+    <%= submit_tag 'likeする',class:"btn btn-success" %>
   <% end %>
 <% end %>
 

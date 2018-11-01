@@ -8,6 +8,8 @@
               <img src="<%= book.image_url %>" alt="" >
             </div>
             <div class="panel-body">
+              
+             
               <% if book.persisted? %>
                 <p class="book-title"><%= link_to book.title, book %></p>
               <% else %>
@@ -16,7 +18,7 @@
               <div class="buttons text-center">
                 <% if logged_in? %>
                   <%= render 'favorites/like_button', book: book %>
-                  
+                  <%= render 'posts/new_post_button', book: book %>
                 <% end %>
               </div>
             </div>

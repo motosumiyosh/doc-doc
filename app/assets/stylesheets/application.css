@@ -61,6 +61,10 @@ footer {
   height: 230px;
 }
 
+.book .panel-body .buttons form{
+  display: inline-block;
+  margin: 0 5px;
+}
 p.book-title{
   height: 35px;
   display: -webkit-box;

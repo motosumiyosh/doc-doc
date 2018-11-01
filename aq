@@ -1,0 +1,33 @@
+
+[1mFrom:[0m /home/ec2-user/environment/doc-doc/app/controllers/application_controller.rb @ line 25 ApplicationController#read:
+
+    [1;34m18[0m: [32mdef[0m [1;34mread[0m(result)
+    [1;34m19[0m:   isbn = result[[31m[1;31m'[0m[31misbn[1;31m'[0m[31m[0m]
+    [1;34m20[0m:   title = result[[31m[1;31m'[0m[31mtitle[1;31m'[0m[31m[0m]
+    [1;34m21[0m:   author = result[[31m[1;31m'[0m[31mauthor[1;31m'[0m[31m[0m]
+    [1;34m22[0m:   sales_date = result[[31m[1;31m'[0m[31msalesDate[1;31m'[0m[31m[0m]
+    [1;34m23[0m: 
+    [1;34m24[0m:   binding.pry
+ => [1;34m25[0m:   [32mif[0m sales_date.include?([31m[1;31m'[0m[31m日[1;31m'[0m[31m[0m) && sales_date.include?([31m[1;31m'[0m[31m月[1;31m'[0m[31m[0m)
+    [1;34m26[0m:     sales_date = [1;34;4mDate[0m.strptime(sales_date, [31m[1;31m"[0m[31m%Y年%m月%d日[1;31m"[0m[31m[0m)
+    [1;34m27[0m:   [32melsif[0m sales_date.include?([31m[1;31m'[0m[31m月[1;31m'[0m[31m[0m)
+    [1;34m28[0m:     sales_date = [1;34;4mDate[0m.strptime(sales_date, [31m[1;31m"[0m[31m%Y年%m月[1;31m"[0m[31m[0m)
+    [1;34m29[0m:   [32melse[0m
+    [1;34m30[0m:     sales_date = [1;34;4mDate[0m.strptime(sales_date, [31m[1;31m"[0m[31m%Y年[1;31m"[0m[31m[0m)
+    [1;34m31[0m:   [32mend[0m
+    [1;34m32[0m:   
+    [1;34m33[0m:   item_price = result[[31m[1;31m'[0m[31mitemPrice[1;31m'[0m[31m[0m]
+    [1;34m34[0m:   item_url = result[[31m[1;31m'[0m[31mitemUrl[1;31m'[0m[31m[0m]
+    [1;34m35[0m:   image_url = result[[31m[1;31m'[0m[31mlargeImageUrl[1;31m'[0m[31m[0m].gsub([31m[1;31m'[0m[31m?_ex=300x300[1;31m'[0m[31m[0m, [31m[1;31m'[0m[31m[1;31m'[0m[31m[0m)
+    [1;34m36[0m: 
+    [1;34m37[0m:   {
+    [1;34m38[0m:     [35misbn[0m: isbn,
+    [1;34m39[0m:     [35mtitle[0m: title,
+    [1;34m40[0m:     [35mauthor[0m: author,
+    [1;34m41[0m:     [35msales_date[0m: sales_date,
+    [1;34m42[0m:     [35mitem_price[0m: item_price,
+    [1;34m43[0m:     [35mitem_url[0m: item_url,
+    [1;34m44[0m:     [35mimage_url[0m: image_url,
+    [1;34m45[0m:   }
+    [1;34m46[0m: [32mend[0m
+
