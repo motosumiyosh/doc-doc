@@ -1,22 +1,29 @@
 <div class="row">
-  <div class="col-xs-6">
-    <%= form_for(post) do |f| %>
-      <% if message.errors.any? %>
+  <div class="col-xs-offset-3 col-xs-6">
+    <%= form_for(@post) do |f| %>
+      <% if @post.errors.any? %>
         <div class="alert alert-warning">
           <ul>
-            <% post.errors.full_messages.each do |message| %>
+            <% @post.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             <% end %>
           </ul>
         </div>
       <% end %>
-
-      <div class="form-group">
-        <%= f.label :comment, 'タイトル' %>
-        <%= f.text_field :comment, class: 'form-control' %>
+      
+      
+      <div class="book_info">
+        <h3>Book情報</h3>
+       
+        <%= @book.title %>
+        <%= hidden_field_tag :book_id, @book.id %>
+        
       </div>
-
-     
+　　　<br>
+      <div class="form-group">
+        <h3>コメント</h3>
+        <%= f.text_area :comment, class: 'form-control',:size => "10x8" %>
+      </div>    
 
       <%= f.submit '投稿', class: 'btn btn-primary' %>
     <% end %>

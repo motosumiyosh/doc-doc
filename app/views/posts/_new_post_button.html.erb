@@ -1,5 +1,1 @@
-<%= form_tag(posts_path) do %>
-  <%= hidden_field_tag :book_id, book.id %>
-  <%= submit_tag '投稿する',class:"btn btn-success" %>
-<% end %>
-
+<%= link_to '投稿する',new_post_path(book_isbn: book.isbn), class:"btn btn-success" %>
