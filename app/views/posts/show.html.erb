@@ -1,20 +1,38 @@
+<h1>メッセージ詳細ページ</h1>
 
-<h1>id = <%= @post.id %> のメッセージ詳細ページ</h1>
-
-<table class="table table-bordered">
-  <tr>
-    <th>id</th>
-    <td><%= @post.id %></td>
-  </tr>
-  <tr>
-    <th>タイトル</th>
-    <td><%= @post.book.title %></td>
-  </tr>
-  <tr>
-    <th>メッセージ</th>
-    <td><%= @post.comment %></td>
-  </tr>
-</table>
-
-
-<%= link_to 'このメッセージを削除する', @post, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
+<h2>投稿情報</h2>
+<br>
+<br>
+<div>(投稿にいいねした人を表示するスペース)</div>
+<br>
+<br>
+<div>
+  <%= simple_format(@post.comment) %>
+</div>
+<h2>書籍情報</h2>
+<ul class="media-list">
+ 
+    <li class="media">
+      <div class="media-left">
+        <img src="<%= @post.book.image_url %>" height="120" width="85" alt="">
+      </div>
+      <div class="media-body">
+      
+        <h4>
+          <%= link_to @post.book.title,book_url %>
+        </h4>
+        <div>
+          著者：<%= @post.book.author %>
+          
+          
+        </div>
+        <div>
+        価格：<%= @post.book.item_price %>円
+        </div>
+        <div>
+          発売日：<%= @post.book.sales_date %>
+        </div>
+      </div>
+    </li>
+ 
+</ul>

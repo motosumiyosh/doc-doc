@@ -42,6 +42,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    #@book = Book.find(params[:book_id])
   end
   
   private

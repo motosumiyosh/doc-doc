@@ -2,13 +2,13 @@
  <% books.each do |book| %>
     <li class="media">
       <div class="media-left">
-        <img src="<%= book.image_url %>" width="144" height="144" alt="">
+        <img src="<%= book.image_url %>" height="120" width="85" alt="">
       </div>
       <div class="media-body">
       
-        <div>
-          <%= book.title %>
-        </div>
+        <h4>
+          <%= link_to book.title,book_url %>
+        </h4>
         <div>
           <%= book.author %>
         </div>

@@ -4,15 +4,20 @@
     <div class="media-left">
       <img src="/images/human.jpg" width="80" height="80" alt="" class="img-circle">
     </div>
+    
     <div class="media-body">
+      
       <div>
         <%= link_to post.user.name, user_path(post.user) %><span class="text-muted">&nbsp;posted at&nbsp;<%= post.created_at %></span>
       </div>
+      
       <div>
-        <p><%= simple_format(post.comment) %></p>
-        <p><%= post.book.title %></p>
+        <p><%= simple_format(post.comment) %> </p>
+        <%= link_to '投稿詳細へ',post %>
+        <h4><img src="http://freeiconbox.com/icon/256/32354.png" width="33" height="33"><%= link_to post.book.title, book_url %></h4>
         
       </div>
+      
       <!--
       <div>
         <#% if current_user == post.user %>
@@ -20,8 +25,10 @@
         <#% end %>
       </div>
       -->
+      
     
     </div>
+    
     
     
     
