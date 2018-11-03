@@ -2,27 +2,32 @@
   <% posts.each do |post| %>
   <li class="media">
     <div class="media-left">
-      <img class="media-object img-rounded" src="" alt="">
+      <img src="/images/human.jpg" width="80" height="80" alt="" class="img-circle">
     </div>
     <div class="media-body">
       <div>
-      <%= link_to post.user.name, user_path(micropost.user) %><span class="text-muted">&nbsp;posted at&nbsp;<%= post.created_at %></span>
-    </div>
-    <div>
-      <p><%= post.comment %></p>
-    </div>
-    <p><%= post.book %></p>
+        <%= link_to post.user.name, user_path(post.user) %><span class="text-muted">&nbsp;posted at&nbsp;<%= post.created_at %></span>
+      </div>
+      <div>
+        <p><%= simple_format(post.comment) %></p>
+        <p><%= post.book.title %></p>
+      </div>
+      <!--
+      <div>
+        <#% if current_user == post.user %>
+        <#%= link_to "Delete",post,method: :delete,data:{confirm:"本当に削除しますか？" },class: 'btn btn-danger btn-xs' %>
+        <#% end %>
+      </div>
+      -->
+    
     </div>
     
-    <div>
-      <% if current_user == micropost.user %>
-      <%= link_to "Delete",post,method: :delete,data:{confirm:"本当に削除しますか？" },class: 'btn btn-danger btn-xs' %>
-      <% end %>
-    </div>
+    
+    
    
     
     
   </li>
-  
+  <% end %>
  
 </ul>

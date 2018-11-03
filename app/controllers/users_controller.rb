@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     counts(@user)
+    @posts = @user.posts.order('created_at DESC').page(params[:page])
   end
 
   def create
@@ -29,7 +30,13 @@ class UsersController < ApplicationController
   
   def followers
     @user = User.find(params[:id])
-    @followers = @user.followings.page(params[:page])
+    @followers = @user.followers.page(params[:page])
+    counts(@user)
+  end 
+  
+  def liked_books
+    @user = User.find(params[:id])
+    @liked_books = @user.liked_books.page(params[:page])
     counts(@user)
   end 
     

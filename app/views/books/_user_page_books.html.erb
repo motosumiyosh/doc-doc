@@ -1,0 +1,19 @@
+<ul class="media-list">
+ <% books.each do |book| %>
+    <li class="media">
+      <div class="media-left">
+        <img src="<%= book.image_url %>" width="144" height="144" alt="">
+      </div>
+      <div class="media-body">
+      
+        <div>
+          <%= book.title %>
+        </div>
+        <div>
+          <%= book.author %>
+        </div>
+        
+      </div>
+    </li>
+  <% end %>
+</ul>

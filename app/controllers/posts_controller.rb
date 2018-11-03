@@ -17,11 +17,12 @@ class PostsController < ApplicationController
     
   end
 
-  def destroy
-    @post.destroy
-    flash[:success] = '投稿が削除されました'
-    redirect_to user_path
-  end
+  #def destroy
+   # @post = Post.find(params[:id])
+    #@post.destroy
+  #  flash[:success] = '投稿が削除されました'
+   # redirect_to user_path
+  #end
 
   def new
     @book = Book.find_or_initialize_by(isbn: params[:book_isbn])
