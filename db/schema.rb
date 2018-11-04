@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181029154508) do
+ActiveRecord::Schema.define(version: 20181104063506) do
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "isbn"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20181029154508) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.date     "birthday"
   end
 
   add_foreign_key "favorites", "books"

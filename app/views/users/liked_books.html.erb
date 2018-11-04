@@ -7,8 +7,17 @@
       <div class="panel-body">
         <img src="/images/human.jpg" width="230" height="230" alt="" class="img-circle">
       </div>
+      
     </div>
+    <p>生年月日：<%= @user.birthday %></p>
     <%= render 'relationships/follow_button', user: @user %>
+    <% if current_user = @user %>
+      <%#= form_for(current_user.relationships.find_by(follow_id: user.id), html: {method: :edit}) do |f| %>
+      
+        <%= submit_tag '編集', class: 'btn btn-success btn-block' %>
+      <%# end %>
+    
+    <% end %>
   </aside>
   <div class="col-xs-9">
     <ul class="nav nav-tabs nav-justified">

@@ -19,7 +19,8 @@
       <div class="media-body">
       
         <h4>
-          <%= link_to @post.book.title,book_url %>
+          
+          <%= link_to @post.book.title,@post.book %>
         </h4>
         <div>
           著者：<%= @post.book.author %>

@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     counts(@user)
     @posts = @user.posts.order('created_at DESC').page(params[:page])
+    
   end
 
   def create
@@ -47,6 +48,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :birthday, :password_confirmation)
   end
 end
