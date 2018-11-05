@@ -1,35 +1,24 @@
-<header>
-  <nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-left" href="/"><img src="/images/logo.png" alt="Monolist"></a>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <% if logged_in? %>
-          
-            <li class="search">
-              
-                <%= form_tag(search_path, method: :get,class: 'form-inline') do %>
-                  <div class="form_group">
-                    <%= text_field_tag :title, @title, class: 'form-control input-lg', placeholder: "キーワードを入力", size: 30 %>
-                  </div>
-                  
-              
-            </li>
-            <li class="search_button">
-              <%= submit_tag '検索', class: 'btn btn-success btn-lg' %>
-                <% end %>  
-            </li>
-            
+<nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-left" href="/"><img src="/images/logo.png" alt="Monolist"></a>
+    </div>
 
-            <li class="dropdown">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <span class="gravatar">
                   <img src="images/human.jpg" width="25" height="25" alt="" class="img-circle">
@@ -47,12 +36,13 @@
                 </li>
               </ul>
             </li>
-          <% else %>
-            <li><%= link_to '新規登録', signup_path %></li>
-            <li><%= link_to 'ログイン', login_path %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
+      </ul>
+      <%= form_tag(search_path, method: :get,class: "navbar-form navbar-right") do %>
+        <div class="form-group">
+          <%= text_field_tag :title, @title, class: 'form-control input-lg', placeholder: "キーワードを入力", size: 30 %>
+        </div>
+        <%= submit_tag '検索', class: 'btn btn-success btn-lg' %>
+      <% end %>  
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
