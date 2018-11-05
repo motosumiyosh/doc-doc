@@ -13,9 +13,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        
-      </ul>
+      <% if logged_in? %>
       
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -43,6 +41,12 @@
         </div>
         <%= submit_tag '検索', class: 'btn btn-success btn-lg' %>
       <% end %>  
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+      <% else %>
+      <ul class="nav navbar-nav navbar-right">
+         <li><%= link_to '新規登録', signup_path %></li>
+         <li><%= link_to 'ログイン', login_path %></li>
+         </ul>
+       <% end %>
+    </div>
+  </div>
 </nav>
