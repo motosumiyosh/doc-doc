@@ -8,13 +8,14 @@
         <div class="panel-body">
           <p class="book-title"><%= @book.title %></p>
           <div class="buttons text-center">
-            <p>ボタン2つ入れるところ</p>
+            <br><p><font color="red">(ボタン2つ入れるところ)</font></p>
           </div>
         </div>
       </div>
     </div>
     <div class="btn btn-lg btn-block btn-default">
-      <%= link_to @book.title + "の詳細ページ" , @book.item_url,{:target => "_blank"}  %>
+      <div class="link_text"><%= link_to @book.title, @book.item_url,{:target => "_blank"}  %></div>
+      <p>の詳細ページ</p>
     </div>
   </div>
   
@@ -34,7 +35,7 @@
     <div class="liked-users">
       <div class="panel panel-default">
         <div class="panel-heading text-center">
-          この本にいいねしたユーザー
+          <font color="red">この本にいいねしたユーザー</font>
         </div>
         <div class="panel-body">
           
@@ -44,12 +45,12 @@
     <div class="posted-users">
       <div class="panel panel-default">
         <div class="panel-heading text-center">
-          （タグ付けして投稿したユーザーを表示、@countで何人したかも表示する）
+          <font color="red">この本について投稿したユーザー</font>
         </div>
         <div class="panel-body">
         </div>
       </div>
     </div>
-    <p class="text-center"><%= link_to '楽天詳細ページ', @book.item_url, target: '_blank' %></p>
+    
   </div>
 </div>

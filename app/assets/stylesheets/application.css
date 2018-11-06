@@ -74,3 +74,14 @@ p.book-title{
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
+.row .btn .link_text{
+  font-size:15px;
+  padding-bottom: 5px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.row .btn{
+  color :red;
+}
