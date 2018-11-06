@@ -1,12 +1,10 @@
+<div class="row">
 <h1>メッセージ詳細ページ</h1>
 
 <h2>投稿情報</h2>
-<br>
-<br>
-<div>(投稿にいいねした人を表示するスペース)</div>
-<br>
-<br>
+
 <div>
+  投稿日時：<%= @post.created_at %>
   <%= simple_format(@post.comment) %>
 </div>
 <h2>書籍情報</h2>
@@ -37,3 +35,4 @@
     </li>
  
 </ul>
+</div>

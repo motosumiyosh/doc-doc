@@ -3,11 +3,15 @@
 /* body */
 body {
   background: #f2f2f2;
+  
 }
 footer {
   margin-top: 40px;
   background-color: #e9e9e9;
   height: 166px;
+}
+.row{
+  min-height: 600px;
 }
 
 /* navbar */
@@ -82,6 +86,6 @@ p.book-title{
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
-.row .btn{
+.row .btn .btn-edit{
   color :red;
 }

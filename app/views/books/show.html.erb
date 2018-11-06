@@ -8,7 +8,8 @@
         <div class="panel-body">
           <p class="book-title"><%= @book.title %></p>
           <div class="buttons text-center">
-            <br><p><font color="red">(ボタン2つ入れるところ)</font></p>
+            <!-- <br><p><font color="red">(ボタン2つ入れるところ)</font></p> -->
+            <%= render 'posts/new_post_button', book: @book %>
           </div>
         </div>
       </div>
@@ -31,6 +32,8 @@
     </div>
   </div>
 
+
+<!--
   <div class="col-md-3 col-sm-6 col-xs-12">
     <div class="liked-users">
       <div class="panel panel-default">
@@ -53,4 +56,5 @@
     </div>
     
   </div>
+  -->
 </div>

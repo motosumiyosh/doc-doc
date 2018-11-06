@@ -42,12 +42,33 @@ class UsersController < ApplicationController
   end 
     
   
-  
+  def index
+    @users = []
+    @name = params[:name]
     
+    if @name
+      results = User.where(
+      name: @name
+    
+     )
+      
+      results.each do |result|
+        user = User.find_or_initialize_by(read(result))
+        @users << user
+      end
+    end
+  end
   
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :birthday, :password_confirmation)
+  end
+  
+  def read(result)
+    name = result['name']
+    {
+      name: name,
+    }
   end
 end

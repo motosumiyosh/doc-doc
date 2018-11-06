@@ -35,9 +35,16 @@
               </ul>
             </li>
       </ul>
+      
       <%= form_tag(search_path, method: :get,class: "navbar-form navbar-right") do %>
         <div class="form-group">
-          <%= text_field_tag :title, @title, class: 'form-control input-lg', placeholder: "キーワードを入力", size: 30 %>
+          <%= text_field_tag :title, @title, class: 'form-control input-lg', placeholder: "本を検索", size: 30 %>
+        </div>
+        <%= submit_tag '検索', class: 'btn btn-success btn-lg' %>
+      <% end %>  
+      <%= form_tag(users_path, method: :get,class: "navbar-form navbar-right") do %>
+        <div class="form-group">
+          <%= text_field_tag :name, @name, class: 'form-control input-lg', placeholder: "ユーザーを検索", size: 30 %>
         </div>
         <%= submit_tag '検索', class: 'btn btn-success btn-lg' %>
       <% end %>  

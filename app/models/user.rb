@@ -47,5 +47,8 @@ class User < ApplicationRecord
     self.liked_books.include?(book)
   end
   
+  def feed_posts
+    Post.where(user_id: self.following_ids + [self.id])
+  end
   
 end

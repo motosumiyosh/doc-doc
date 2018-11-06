@@ -9,4 +9,13 @@
       </div>
     </div>
   </div>
+  
+<% end %>
+<% if logged_in? %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+  <h1 class="text-center">タイムライン</h1>
+  <%= render 'posts/posts',microposts: @microposts %>
+  </div>
+</div>
 <% end %>
