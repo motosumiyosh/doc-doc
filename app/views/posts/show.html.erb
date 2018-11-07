@@ -2,12 +2,12 @@
 <h1>メッセージ詳細ページ</h1>
 
 <h2>投稿情報</h2>
-
+<br>
 <div>
   投稿日時：<%= @post.created_at %>
   <%= simple_format(@post.comment) %>
 </div>
-<h2>書籍情報</h2>
+<h2>書籍情報</h2><br>
 <ul class="media-list">
  
     <li class="media">
@@ -34,5 +34,6 @@
       </div>
     </li>
  
+<%= link_to 'このメッセージを編集する', edit_post_path(@post) %>
 </ul>
 </div>

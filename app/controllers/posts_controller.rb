@@ -46,6 +46,25 @@ class PostsController < ApplicationController
     
   end
   
+  def edit
+    @post = Post.find(params[:id])
+    @book = Book.find(params[:id])
+  end
+  
+  
+  
+  def update
+    @post = Post.find(params[:id])
+    @book = Book.find(params[:id])
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      flash.now[:danger] = '投稿の保存に失敗しました'
+      render :edit
+    end
+  end
+  
+ 
   private
   
   def post_params
