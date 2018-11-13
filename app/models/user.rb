@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {maximum: 255},format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },uniqueness: { case_sensitive: false }
   has_secure_password
   
+  validates :bio,length: {maximum: 150}
     
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow 

@@ -1,0 +1,42 @@
+<div class="row">
+  <h1>ユーザー情報編集ページ</h1>
+  <div class="col-xs-offset-3 col-xs-6">
+    <%= form_for(@user) do |f| %>
+      <% if @user.errors.any? %>
+        <div class="alert alert-warning">
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      
+      
+     
+      <div class="form-group">
+        <%= f.label :name, '名前' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>    
+      <div class="form-group">
+        <%= f.label :email, 'メールアドレス' %>
+        <%= f.email_field :email, class:'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :bio, '自己紹介' %>
+        <%= f.text_area :bio, class:'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, 'パスワード' %>
+        <%= f.password_field :password, class:'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, 'パスワード（確認）' %>
+        <%= f.password_field :password_confirmation, class:'form-control' %>
+      </div>
+
+
+      <%= f.submit '編集完了', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
