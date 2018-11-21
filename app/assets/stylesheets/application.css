@@ -86,3 +86,6 @@ p.book-title{
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
+.toko{
+  display: inline;
+}
