@@ -22,6 +22,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @liked_users = @book.liked_users
+    @posted_users = @book.posted_users
   end
   
   private

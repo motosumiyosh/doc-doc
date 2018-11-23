@@ -7,9 +7,10 @@ class Book < ApplicationRecord
   validates :item_url, presence: true, length: { maximum: 255 }
   validates :image_url, presence: true, length: { maximum: 255 }
   
-  has_many :reversed_of_favorites,class_name:"Favorite",foreign_key:'favorite_id'
-  has_many :liked_users, through: :reversed_of_favorites, source: :user
-  
+ # has_many :reversed_of_favorites,class_name:"Favorite",foreign_key:'favorite_id'
+  #has_many :liked_users, through: :reversed_of_favorites, source: :user
+  has_many :favorites
+  has_many :liked_users, through: :favorites, source: :user
   has_many :posts
-  has_many :posted_users, through: :posts
+  has_many :posted_users, through: :posts, source: :user
 end
