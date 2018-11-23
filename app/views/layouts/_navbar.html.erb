@@ -1,6 +1,5 @@
 <nav class="navbar navbar-default">
   <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -11,7 +10,7 @@
       <a class="navbar-left" href="/"><img src="/images/logo.png" alt="Monolist"></a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
+    
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <% if logged_in? %>
       
@@ -50,8 +49,31 @@
       <% end %>  
       <% else %>
       <ul class="nav navbar-nav navbar-right">
-         <li><%= link_to '新規登録', signup_path %></li>
+        
+        
+        
+        <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to '新規登録', signup_path %></li>
          <li><%= link_to 'ログイン', login_path %></li>
+      </ul>
+      
+      <%= form_tag(search_path, method: :get,class: "navbar-form navbar-right") do %>
+        <div class="form-group">
+          <%= text_field_tag :title, @title, class: 'form-control input-lg', placeholder: "本を検索", size: 30 %>
+        </div>
+        <%= submit_tag '検索', class: 'btn btn-success btn-lg' %>
+      <% end %>  
+      <%= form_tag(users_path, method: :get,class: "navbar-form navbar-right") do %>
+        <div class="form-group">
+          <%= text_field_tag :name, @name, class: 'form-control input-lg', placeholder: "ユーザーを検索", size: 30 %>
+        </div>
+        <%= submit_tag '検索', class: 'btn btn-success btn-lg' %>
+      <% end %>  
+      
+      
+      
+      
+         
          </ul>
        <% end %>
     </div>
