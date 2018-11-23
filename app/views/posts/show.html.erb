@@ -6,6 +6,8 @@
 <div>
   投稿日時：<%= @post.created_at %>
   <%= simple_format(@post.comment) %>
+  <%= link_to 'このメッセージを編集する', edit_post_path(@post),  class: 'btn btn-danger' %>
+</ul>
 </div>
 <h2>書籍情報</h2><br>
 <ul class="media-list">
@@ -16,14 +18,11 @@
       </div>
       <div class="media-body">
       
-        <h4>
-          
+        <h4>    
           <%= link_to @post.book.title,@post.book %>
         </h4>
         <div>
           著者：<%= @post.book.author %>
-          
-          
         </div>
         <div>
         価格：<%= @post.book.item_price %>円
@@ -34,6 +33,5 @@
       </div>
     </li>
  
-<%= link_to 'このメッセージを編集する', edit_post_path(@post) %>
-</ul>
+
 </div>

@@ -89,3 +89,15 @@ p.book-title{
 .toko{
   display: inline;
 }
+.item-intro .btn{
+  width: 100%;
+  
+  font-size: 14px;
+   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis; 
+}
+.rakuten{
+  background-color: #bf0000;
+}

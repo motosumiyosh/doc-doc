@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-3 col-sm-6 col-xs-12">
+  <div class="col-md-3 item-intro">
     <div class="item">
       <div class="panel panel-default">
         <div class="panel-heading text-center">
@@ -14,10 +14,13 @@
         </div>
       </div>
     </div>
-    <div class="btn btn-lg btn-block btn-default">
-      <div class="link_text"><%= link_to @book.title, @book.item_url,{:target => "_blank"}  %></div>
-      <p>の詳細ページ</p>
-    </div>
+    
+     <div class="link_to">
+       楽天ブックスページ
+        <%= link_to @book.title, @book.item_url,{:target => "_blank",:class => 'btn btn-danger btn-lg'} %>
+        
+        </div>
+      
   </div>
   
   <div class="col-md-6">
