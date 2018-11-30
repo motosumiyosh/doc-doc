@@ -44,6 +44,7 @@
         この本にいいねしたユーザー
         </div>
         <div class="panel-body">
+          <%= @count_liked_users %><br>
           <% @liked_users.each do |user| %>
             <%= link_to user.name, user_path(user) %>
           <% end %>
@@ -56,6 +57,7 @@
        この本について投稿したユーザー
         </div>
         <div class="panel-body">
+          
            <% @posted_users.each do |user| %>
             <%= link_to user.name, user_path(user) %>
           <% end %>
