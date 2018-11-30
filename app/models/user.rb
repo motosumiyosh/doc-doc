@@ -19,6 +19,22 @@ class User < ApplicationRecord
   
   has_many :posts
   
+  has_many :postships,dependent: :destroy
+  has_many :like_posts ,through: :postships, source: :post
+  
+  
+  def post_like(post)
+    self.postships.find_or_create_by(post_id: post.id)
+  end 
+  
+  def post_unlike(post)
+    postship = self.postships.find_by(post_id: post.id)
+    postship.destroy if postship
+  end 
+  
+  def post_like?(post)
+    self.postships.include?(post)
+  end
     
   def follow(other_user)
     unless self == other_user

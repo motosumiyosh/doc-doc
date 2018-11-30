@@ -62,3 +62,4 @@ gem 'rakuten_web_service' , '1.5.0'
 gem 'dotenv-rails'
 gem 'pry-byebug', group: :development
 gem 'high_voltage'
+gem 'rails-i18n'
