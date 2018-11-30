@@ -13,7 +13,10 @@ class ApplicationController < ActionController::Base
     
   #def count(post)
    # @count_posts = user.posts
-#  end
+# end
+
+
+
   private
   
   def require_user_logged_in
