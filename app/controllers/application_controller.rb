@@ -8,9 +8,12 @@ class ApplicationController < ActionController::Base
     
   end 
   def counts(book)
-    @count_liked_users = book.liked_user
+    @count_liked_users = book.liked_users
   end 
     
+  #def count(post)
+   # @count_posts = user.posts
+#  end
   private
   
   def require_user_logged_in
