@@ -24,6 +24,7 @@ class User < ApplicationRecord
   
   
   def post_like(post)
+    
     self.postships.find_or_create_by(post_id: post.id)
   end 
   
