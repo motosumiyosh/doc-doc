@@ -3,14 +3,14 @@ class PostshipsController < ApplicationController
   
    def create
     post = Post.find(params[:post_id])
-    current_user.like(micropost)
-    redirect_to root_url
+    current_user.post_like(post)
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     post = Post.find(params[:post_id])
-    current_user.unlike(micropost)
-    redirect_to root_url
+    current_user.post_unlike(post)
+    redirect_back(fallback_location: root_path)
   end
   
 end

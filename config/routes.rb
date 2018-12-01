@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :favorites, only:[:create,:destroy]
 
   root to:'toppages#index'
+  resources :postships, only:[:create, :destroy]
   
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

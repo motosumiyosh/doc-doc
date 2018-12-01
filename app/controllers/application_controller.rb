@@ -2,13 +2,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   
-  def counts(user)
+  def count_users(user)
     @count_followings = user.followings.count
     @count_followers = user.followers.count
     
   end 
-  def counts(book)
-    @count_liked_users = book.liked_users
+  def count_books(book)
+    @count_liked_users = book.liked_users.count
+    @count_posted_users = book.posted_users.count
   end 
     
   #def count(post)

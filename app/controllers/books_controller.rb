@@ -24,6 +24,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @liked_users = @book.liked_users
     @posted_users = @book.posted_users
+    count_books(@book)
   end
   
   private
