@@ -1,6 +1,7 @@
 # README
 
 doc-docは読評を楽天Booksのリンクをタグ付けしてシェアし合うSNSです。
+URL : http://doc-doc-2018.herokuapp.com/
 
 Things you may want to cover:
 
