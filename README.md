@@ -1,21 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+doc-docは読評を楽天Booksのリンクをタグ付けしてシェアし合うSNSです。
+URL : http://doc-doc-2018.herokuapp.com/
 
 Things you may want to cover:
 
 * Ruby version
+5.0.6
 
 * System dependencies
 
 * Configuration
 
 * Database creation
-
+MySQL2 
 * Database initialization
 
 * How to run the test suite
+Rspec
 
 * Services (job queues, cache servers, search engines, etc.)
 
