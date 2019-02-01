@@ -26,19 +26,19 @@ class UsersController < ApplicationController
   def followings
     @user = User.find(params[:id])
     @followings = @user.followings.page(params[:page])
-    counts(@user)
+    count_users(@user)
   end 
   
   def followers
     @user = User.find(params[:id])
     @followers = @user.followers.page(params[:page])
-    counts(@user)
+    count_users(@user)
   end 
   
   def liked_books
     @user = User.find(params[:id])
     @liked_books = @user.liked_books.page(params[:page])
-    counts(@user)
+    count_users(@user)
   end 
     
   

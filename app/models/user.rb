@@ -33,8 +33,8 @@ class User < ApplicationRecord
     postship.destroy if postship
   end 
   
-  def post_like?(post)
-    self.postships.include?(post)
+  def post_liked?(post)
+    self.like_posts.include?(post)
   end
     
   def follow(other_user)

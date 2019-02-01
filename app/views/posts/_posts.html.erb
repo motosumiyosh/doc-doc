@@ -15,13 +15,13 @@
       
       <div class="toko">
         　
-                <% if current_user.post_like?(post) %>
-    　　　　<%= form_for(current_user.postships.find_by(follow_id: user.id), html: { method: :delete },class: 'new_postships') do |f| %>
+                <% if current_user.post_liked?(post) %>
+    　　　　<%= form_for(current_user.postships.find_by(post_id: post.id), html: { method: :delete },class: 'new_postships') do |f| %>
       　　　　<%= hidden_field_tag :post_id, post.id %>
       　　　　<%= f.submit 'いいね済み', class: 'btn btn-danger btn-xs' %>
     　　　　<% end %>
   　　　　<% else %>
-  　　　
+  　　
  　　　　  　　 <%= form_for(current_user.postships.build) do |f| %>
             <%= hidden_field_tag :post_id, post.id %>
             <%= f.submit 'いいね', class: 'btn btn-danger btn-xs' %>
