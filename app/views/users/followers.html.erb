@@ -1,37 +1,7 @@
 <div class="row">
-  <aside class="col-md-3">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= @user.name %></h3>
-      </div>
-      <div class="panel-body">
-        <img src="/images/human.jpg" width="100%" height="100%" alt="" class="img-circle">
-      </div>
-      
-    </div>
-    
-    <p>生年月日：<%= @user.birthday %></p>
-    <p><%= @user.bio %></p>
-    <%= render 'relationships/follow_button', user: @user %>
-    
-    <% if current_user == @user %>
-      <%= link_to '編集',edit_user_path(@user),class:"btn btn-success btn-block btn-edit" %>
-    
-    <% end %>
-   
-  </aside>
+  <%= render 'user_aside' %>
   <div class="col-md-9 col-xs-12">
-    <ul class="nav nav-tabs nav-justified">
-      <li class="<%= 'active' if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %>投稿<span class="badge"></span><% end %></li>
-      <li class="<%= 'active' if current_page?(liked_books_user_path(@user)) %>"><%= link_to liked_books_user_path(@user) do %>いいねした本<span class="badge"></span><% end %></li>
-      <li class="<%= 'active' if current_page?(followings_user_path(@user)) %>"><%= link_to followings_user_path(@user) do %>Followings <span class="badge"><%= @count_followings %></span><% end %></li>
-      <li class="<%= 'active' if current_page?(followers_user_path(@user)) %>"><%= link_to followers_user_path(@user) do %>Followers <span class="badge"><%= @count_followers %></span><% end %></li>
-    </ul>
-   
-  <%= render 'users', users: @followers %>
+    <%= render 'user_info_switch' %>
+    <%= render 'users', users: @followers %>
   </div>
 </div>
-
-
-
-
