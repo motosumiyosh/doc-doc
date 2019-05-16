@@ -1,0 +1,24 @@
+version: '2'
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: docker_development
+      MYSQL_ROOT_PASSWORD: koko0groly
+      MYSQL_USER: 2002hbnsn
+      MYSQL_PASSWORD: koko0groly
+    ports:
+      - "3306:3306" # ホストからゲストへポートフォワード
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bundle exec rails s 
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db # DB側のコンテナが出来上がってからwebを実行する
+    ports:
+      - "3000:3000" # ホストからゲストへポートフォワード
+    volumes:
+      - .:/workdir # ソースコード変更したらDocker側も即反映されるように
