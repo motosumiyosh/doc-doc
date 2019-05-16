@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :favorites, only:[:create,:destroy]
 
   root to:'toppages#index'
