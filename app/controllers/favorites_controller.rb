@@ -23,5 +23,4 @@ class FavoritesController < ApplicationController
     current_user.unlike(@book)
     redirect_back(fallback_location: root_path)
   end
-
 end
