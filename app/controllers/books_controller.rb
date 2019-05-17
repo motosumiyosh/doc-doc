@@ -1,23 +1,23 @@
+# frozen_string_literal: true
+
 class BooksController < ApplicationController
-  before_action :require_user_logged_in, only:[:show]
-  
+  before_action :require_user_logged_in, only: [:show]
+
   def new
     @books = []
-    
+
     @title = params[:title]
     if @title
-      results = RakutenWebService::Books::Book.search({
+      results = RakutenWebService::Books::Book.search(
         title: @title,
-        hits: 28,
-      })
-      
+        hits: 28
+      )
+
       results.each do |result|
         book = Book.find_or_initialize_by(read(result))
         @books << book
       end
     end
-        
-    
   end
 
   def show
@@ -26,24 +26,23 @@ class BooksController < ApplicationController
     @posted_users = @book.posted_users
     count_books(@book)
   end
-  
+
   private
-  
+
   def read(result)
     isbn = result['isbn']
     title = result['title']
     author = result['author']
     sales_date = result['salesDate']
-    
-    
-    if sales_date.include?('日') && sales_date.include?('月')
-      sales_date = Date.strptime(sales_date, "%Y年%m月%d日")
-    elsif sales_date.include?('月')
-      sales_date = Date.strptime(sales_date, "%Y年%m月")
-    else
-      sales_date = Date.strptime(sales_date, "%Y年")
-    end
-    
+
+    sales_date = if sales_date.include?('日') && sales_date.include?('月')
+                   Date.strptime(sales_date, '%Y年%m月%d日')
+                 elsif sales_date.include?('月')
+                   Date.strptime(sales_date, '%Y年%m月')
+                 else
+                   Date.strptime(sales_date, '%Y年')
+                 end
+
     item_price = result['itemPrice']
     item_url = result['itemUrl']
     image_url = result['largeImageUrl'].gsub('?_ex=300x300', '')
@@ -55,9 +54,7 @@ class BooksController < ApplicationController
       sales_date: sales_date,
       item_price: item_price,
       item_url: item_url,
-      image_url: image_url,
+      image_url: image_url
     }
- 
   end
-  
 end

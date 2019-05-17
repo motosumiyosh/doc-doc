@@ -1,33 +1,33 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  resources :favorites, only: %i[create destroy]
 
+  root to: 'toppages#index'
+  resources :postships, only: %i[create destroy]
 
-  resources :favorites, only:[:create,:destroy]
-
-  root to:'toppages#index'
-  resources :postships, only:[:create, :destroy]
-  
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  
-  get 'signup',to: 'users#new'
-  resources :users, only:[:show,:create,:new,:index,:edit,:update] do
+
+  get 'signup', to: 'users#new'
+  resources :users, only: %i[show create new index edit update] do
     member do
       get :followings
       get :followers
       get :liked_books
-    end 
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :relationships, only:[:create,:destroy]
-  get 'search', to: 'books#new' 
-  get 'books/:id', to: 'books#show',as: :book do
+  resources :relationships, only: %i[create destroy]
+  get 'search', to: 'books#new'
+  get 'books/:id', to: 'books#show', as: :book do
     member do
       get :liked_users
-    end 
-  
+    end
   end
-  
-  resources :posts, only:[:new, :create, :destroy, :show,:edit,:update]
-  
+
+  resources :posts, only: %i[new create destroy show edit update]
 end
