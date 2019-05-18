@@ -48,10 +48,6 @@ Style/CommentedKeyword:
   Exclude:
     - 'app/admin/dashboard.rb'
 
-# Offense count: 38
-Style/Documentation:
-  Enabled: false
-
 # Offense count: 1
 Style/DoubleNegation:
   Exclude:
@@ -90,5 +86,3 @@ Style/SymbolArray:
 # Offense count: 92
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
-Metrics/LineLength:
-  Max: 155
