@@ -8,8 +8,6 @@
               <img src="<%= book.image_url %>"  alt="" >
             </div>
             <div class="panel-body">
-              
-             
               <% if book.persisted? %>
                 <p class="book-title"><%= link_to book.title, book %></p>
               <% else %>

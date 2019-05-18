@@ -1,59 +1,37 @@
 <ul class="media-list">
   <% @posts.each do |post| %>
-  <li class="media">
-    <div class="media-left">
-      <img src="/images/human.jpg" width="80" height="80" alt="" class="img-circle">
-    </div>
-    
-    <div class="media-body">
-      
-      <div>
-        <%= link_to post.user.name, user_path(post.user) %><span class="text-muted">&nbsp;posted at&nbsp;<%= post.created_at %></span>
-        <h4><img src="http://freeiconbox.com/icon/256/32354.png" width="33" height="33"><%= link_to post.book.title, post.book %></h4>
-        <p><%= simple_format(post.comment) %> </p>
+    <li class="media">
+      <div class="media-left">
+        <img src="/images/human.jpg" width="80" height="80" alt="" class="img-circle">
       </div>
-      
-      <div class="toko">
-        　
-                <% if current_user.post_liked?(post) %>
-    　　　　<%= form_for(current_user.postships.find_by(post_id: post.id), html: { method: :delete },class: 'new_postships') do |f| %>
-      　　　　<%= hidden_field_tag :post_id, post.id %>
-      　　　　<%= f.submit 'いいね済み', class: 'btn btn-danger btn-xs' %>
-    　　　　<% end %>
-  　　　　<% else %>
-  　　
- 　　　　  　　 <%= form_for(current_user.postships.build) do |f| %>
-            <%= hidden_field_tag :post_id, post.id %>
-            <%= f.submit 'いいね', class: 'btn btn-danger btn-xs' %>
-           <% end %>
-        <% end %>
-      
+      <div class="media-body">
+        <div>
+          <%= link_to post.user.name, user_path(post.user) %><span class="text-muted">&nbsp;posted at&nbsp;<%= post.created_at %></span>
+          <h4><img src="http://freeiconbox.com/icon/256/32354.png" width="33" height="33"><%= link_to post.book.title, post.book %></h4>
+          <p><%= simple_format(post.comment) %> </p>
+        </div>
+        <div class="toko">
+          <% if current_user.post_liked?(post) %>
+            <%= form_for(current_user.postships.find_by(post_id: post.id), html: { method: :delete },class: 'new_postships') do |f| %>
+              <%= hidden_field_tag :post_id, post.id %>
+              <%= f.submit 'いいね済み', class: 'btn btn-danger btn-xs' %>
+            <% end %>
+          <% else %>
+            <%= form_for(current_user.postships.build) do |f| %>
+              <%= hidden_field_tag :post_id, post.id %>
+              <%= f.submit 'いいね', class: 'btn btn-danger btn-xs' %>
+            <% end %>
+          <% end %>      
+        </div>
+        <div class="toko">
+          <%= link_to '投稿詳細へ',post,class: 'btn btn-danger btn-xs' %>
+        </div>
+        <div class="toko">
+          <% if current_user == post.user %>
+            <%= link_to "Delete", post ,method: :delete,data:{confirm:"本当に削除しますか？" },class: 'btn btn-danger btn-xs' %>
+          <% end %>
+        </div>
       </div>
-      <div class="toko">
-        
-        <%= link_to '投稿詳細へ',post,class: 'btn btn-danger btn-xs' %>
-        
-        
-      </div>
-     
-      
-      <div class="toko">
-        <% if current_user == post.user %>
-        <%= link_to "Delete", post ,method: :delete,data:{confirm:"本当に削除しますか？" },class: 'btn btn-danger btn-xs' %>
-        <% end %>
-      </div>
-      
-       
-    
-    </div>
-    
-    
-    
-    
-   
-    
-    
-  </li>
+    </li>
   <% end %>
- 
 </ul>

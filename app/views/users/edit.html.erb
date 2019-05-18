@@ -1,5 +1,4 @@
 <div class="row">
-  
   <div class="col-xs-offset-3 col-xs-6">
     <h1>ユーザー情報編集ページ</h1>
     <%= form_for(@user) do |f| %>
@@ -12,9 +11,6 @@
           </ul>
         </div>
       <% end %>
-      
-      
-     
       <div class="form-group">
         <%= f.label :name, '名前' %>
         <%= f.text_field :name, class: 'form-control' %>
@@ -35,8 +31,6 @@
         <%= f.label :password_confirmation, 'パスワード（確認）' %>
         <%= f.password_field :password_confirmation, class:'form-control' %>
       </div>
-
-
       <%= f.submit '編集完了', class: 'btn btn-primary' %>
     <% end %>
   </div>

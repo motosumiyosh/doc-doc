@@ -5,26 +5,21 @@
         <div class="alert alert-warning">
           <ul>
             <% @post.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
+            w  <li><%= message %></li>
             <% end %>
           </ul>
         </div>
-      <% end %>
-      
-      
+      <% end %>   
       <div class="book_info">
         <h3>Book情報</h3>
-       
         <%= @book.title %>
         <%= hidden_field_tag :book_id, @book.id %>
-        
       </div>
 　　　<br>
       <div class="form-group">
         <h3>コメント</h3>
         <%= f.text_area :comment, class: 'form-control',:size => "10x8" %>
-      </div>    
-
+      </div>
       <%= f.submit '投稿', class: 'btn btn-primary' %>
     <% end %>
   </div>
