@@ -1,23 +1,20 @@
 <div class="row">
-<h1>メッセージ詳細ページ</h1>
-
-<h2>投稿情報</h2>
-<br>
-<div>
-  投稿日時：<%= @post.created_at %>
-  <%= simple_format(@post.comment) %>
-  <%= link_to 'このメッセージを編集する', edit_post_path(@post),  class: 'btn btn-danger' %>
-</ul>
-</div>
-<h2>書籍情報</h2><br>
-<ul class="media-list">
- 
+  <h1>メッセージ詳細ページ</h1>
+  <h2>投稿情報</h2>
+  <br>
+  <div>
+    投稿日時：<%= @post.created_at %>
+    <%= simple_format(@post.comment) %>
+    <%= link_to 'このメッセージを編集する', edit_post_path(@post),  class: 'btn btn-danger' %>
+  </ul>
+  </div>
+  <h2>書籍情報</h2><br>
+  <ul class="media-list">
     <li class="media">
       <div class="media-left">
         <img src="<%= @post.book.image_url %>" height="120" width="85" alt="">
       </div>
       <div class="media-body">
-      
         <h4>    
           <%= link_to @post.book.title,@post.book %>
         </h4>
@@ -25,13 +22,11 @@
           著者：<%= @post.book.author %>
         </div>
         <div>
-        価格：<%= @post.book.item_price %>円
+          価格：<%= @post.book.item_price %>円
         </div>
         <div>
           発売日：<%= @post.book.sales_date %>
         </div>
       </div>
     </li>
- 
-
 </div>

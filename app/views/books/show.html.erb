@@ -13,16 +13,11 @@
           </div>
         </div>
       </div>
-    </div>
-    
-     <div class="link_to">
-
-        <%= link_to '楽天ブックスページ', @book.item_url,{:target => "_blank",:class => 'btn btn-danger btn-lg'} %>
-        
-        </div>
-      
+    </div>  
+      <div class="link_to">
+        <%= link_to '楽天ブックスページ', @book.item_url,{:target => "_blank",:class => 'btn btn-danger btn-lg'} %>  
+      </div>
   </div>
-  
   <div class="col-md-5">
     <div class="item-introduction">
       <div class="panel-body">
@@ -34,9 +29,6 @@
       </div>
     </div>
   </div>
-
-
-
   <div class="col-md-4 col-xs-12">
     <div class="liked-users">
       <div class="panel panel-default">
@@ -54,17 +46,15 @@
     <div class="posted-users">
       <div class="panel panel-default">
         <div class="panel-heading text-center">
-       この本について投稿したユーザー
+        この本について投稿したユーザー
         </div>
         <div class="panel-body">
           <%= @count_posted_users %>人がこの本について投稿しています<br>
-           <% @posted_users.each do |user| %>
+          <% @posted_users.each do |user| %>
             <%= link_to user.name, user_path(user) %>
           <% end %>
         </div>
       </div>
     </div>
-    
   </div>
-
 </div>
