@@ -1,0 +1,13 @@
+ja:
+  title:
+    base: 'Doc-Doc'
+    sessions: 
+      new: 'ログイン'
+    users:
+      edit: 'ユーザー情報編集'
+      new: 'アカウント作成'
+    posts:
+      show: '投稿詳細'
+      new: '新規投稿作成'
+      edit: '投稿編集'
+      
