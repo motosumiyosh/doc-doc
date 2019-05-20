@@ -4,6 +4,7 @@ class User < ApplicationRecord
   before_save { email.downcase! }
   validates :name, presence: true, length: { maximum: 30 }
   validates :email, presence: true, length: { maximum: 255 }, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }, uniqueness: { case_sensitive: false }
+  validates :password , format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i }
   has_secure_password
 
   validates :bio, length: { maximum: 150 }
@@ -37,9 +38,7 @@ class User < ApplicationRecord
   end
 
   def follow(other_user)
-    unless self == other_user
-      relationships.find_or_create_by(follow_id: other_user.id)
-    end
+    relationships.find_or_create_by(follow_id: other_user.id) unless self == other_user
   end
 
   def unfollow(other_user)
