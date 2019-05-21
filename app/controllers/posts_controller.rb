@@ -26,21 +26,16 @@ class PostsController < ApplicationController
 
   def new
     @book = Book.find_or_initialize_by(isbn: params[:book_isbn])
-
     unless @book.persisted?
       results = RakutenWebService::Books::Book.search(isbn: @book.isbn)
-
       @book = Book.new(read(results.first))
       @book.save
-
     end
-
     @post = Post.new
   end
 
   def show
     @post = Post.find(params[:id])
-    # @book = Book.find(params[:book_id])
   end
 
   def edit

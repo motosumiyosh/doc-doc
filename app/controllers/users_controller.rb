@@ -45,12 +45,10 @@ class UsersController < ApplicationController
   def index
     @users = []
     @name = params[:name]
-
     if @name
       results = User.where(
         name: @name
       )
-
       results.each do |result|
         user = User.find_or_initialize_by(read(result))
         @users << user

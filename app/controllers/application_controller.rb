@@ -16,10 +16,6 @@ class ApplicationController < ActionController::Base
     @count_posted_users = book.posted_users.count
   end
 
-  # def count(post)
-  # @count_posts = user.posts
-  # end
-
   private
 
   def require_user_logged_in
@@ -31,7 +27,6 @@ class ApplicationController < ActionController::Base
     title = result['title']
     author = result['author']
     sales_date = result['salesDate']
-
     sales_date = if sales_date.include?('日') && sales_date.include?('月')
                    Date.strptime(sales_date, '%Y年%m月%d日')
                  elsif sales_date.include?('月')
@@ -39,7 +34,6 @@ class ApplicationController < ActionController::Base
                  else
                    Date.strptime(sales_date, '%Y年')
                  end
-
     item_price = result['itemPrice']
     item_url = result['itemUrl']
     image_url = result['largeImageUrl'].gsub('?_ex=300x300', '')

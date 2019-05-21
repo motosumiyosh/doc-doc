@@ -14,12 +14,22 @@
           <% if current_user.post_liked?(post) %>
             <%= form_for(current_user.postships.find_by(post_id: post.id), html: { method: :delete },class: 'new_postships') do |f| %>
               <%= hidden_field_tag :post_id, post.id %>
-              <%= f.submit 'いいね済み', class: 'btn btn-danger btn-xs' %>
+              <%#= f.submit "♡ #{post.liked_users.count}", class: 'btn btn-danger btn-sm' %>
+
+              <%# <span class="glyphicon glyphicon-heart" aria-hidden="true"></span><%= post.liked_users.count %>
+              
+              <%= button_tag "", id: "heart" %><%= post.liked_users.count %>
+
+              <%#= f.submit "", id: "heart" %><%#= post.liked_users.count %>
+
             <% end %>
           <% else %>
             <%= form_for(current_user.postships.build) do |f| %>
               <%= hidden_field_tag :post_id, post.id %>
-              <%= f.submit 'いいね', class: 'btn btn-danger btn-xs' %>
+              <%#= f.submit "♡ #{post.liked_users.count}", class: 'btn btn-danger btn-sm' %>
+              <%# <span class="glyphicon glyphicon-heart" aria-hidden="true"></span><%= post.liked_users.count %> 
+              <%= button_tag "", id: "heart-empty" %> <%= post.liked_users.count %>
+              <%#= f.submit "", id: "heart" %><%#= post.liked_users.count %>
             <% end %>
           <% end %>      
         </div>
