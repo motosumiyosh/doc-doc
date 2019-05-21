@@ -93,7 +93,7 @@ p.book-title{
   width: 100%;
   
   font-size: 14px;
-   white-space: nowrap;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis; 
@@ -107,4 +107,59 @@ p.book-title{
 
 .footer-list{
   margin: 40px 7px 30px 7px;
+}
+
+
+#heart {
+  position: relative;
+  width: 28px;
+  height: 25px;
+  background-color: #f2f2f2;
+  border: none;
+}
+#heart:before,
+#heart:after {
+  position: absolute;
+  content: "";
+  left: 14px;
+  top: 0;
+  width: 14px;
+  height: 22px;
+  background: red;
+  border-radius: 14px 14px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+#heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+
+#heart-empty {
+  position: relative;
+  width: 28px;
+  height: 25px;
+  background-color: #f2f2f2;
+  border: none;
+}
+#heart-empty:before,
+#heart-empty:after {
+  position: absolute;
+  content: "";
+  left: 14px;
+  top: 0;
+  width: 14px;
+  height: 22px;
+  background:#f2f2f2;
+  border-radius: 14px 14px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  border: 1px solid #000000;
+}
+#heart-empty:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
 }
