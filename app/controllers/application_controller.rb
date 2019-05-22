@@ -37,6 +37,7 @@ class ApplicationController < ActionController::Base
     item_price = result['itemPrice']
     item_url = result['itemUrl']
     image_url = result['largeImageUrl'].gsub('?_ex=300x300', '')
+    publisher = result['publisherName']
 
     {
       isbn: isbn,
@@ -45,7 +46,8 @@ class ApplicationController < ActionController::Base
       sales_date: sales_date,
       item_price: item_price,
       item_url: item_url,
-      image_url: image_url
+      image_url: image_url,
+      publisher: publisher
     }
   end
 end
