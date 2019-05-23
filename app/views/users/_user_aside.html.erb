@@ -13,4 +13,5 @@
   <% if current_user == @user %>
     <%= link_to '編集',edit_user_path(@user),class:"btn btn-success btn-block btn-edit" %>
   <% end %>
+  <%= link_to image_tag("/images/Twitter_Logo_Blue.png"), "https://twitter.com#{@user.twitter_acount}"%>
 </aside>
