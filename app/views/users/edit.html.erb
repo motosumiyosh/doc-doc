@@ -24,12 +24,15 @@
         <%= f.text_area :bio, class:'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.label :password, 'パスワード' %>
-        <%= f.password_field :password, class:'form-control' %>
+        <%= f.label :twitter_id, 'Twitter' %>
+        <%= f.text_field :twitter_id, class:'form-control' %>
+      <div class="form-group">
+        <%#= f.label :password, 'パスワード' %>
+        <%#= f.password_field :password, class:'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.label :password_confirmation, 'パスワード（確認）' %>
-        <%= f.password_field :password_confirmation, class:'form-control' %>
+        <%#= f.label :password_confirmation, 'パスワード（確認）' %>
+        <%#= f.password_field :password_confirmation, class:'form-control' %>
       </div>
       <%= f.submit '編集完了', class: 'btn btn-primary' %>
     <% end %>
