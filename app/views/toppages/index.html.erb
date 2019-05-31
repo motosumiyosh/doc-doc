@@ -4,17 +4,17 @@
       <div class="cover-contents">
         <h1>あなたの読書にスパイスを</h1>
         <% unless logged_in? %>
-            <%= link_to 'doc-docに登録する', signup_path, class: 'btn btn-success btn-lg' %>
-          <% end %>
+          <%= link_to 'doc-docに登録する', signup_path, class: 'btn btn-success btn-lg' %>
+        <% end %>
       </div>
     </div>
   </div>
 <% end %>
 <% if logged_in? %>
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-  <h1 class="text-center">タイムライン</h1>
-  <%= render 'posts/posts',posts: @posts %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+    <h1 class="text-center">タイムライン</h1>
+    <%= render 'posts/posts', posts: @posts %>
+    </div>
   </div>
-</div>
 <% end %>
